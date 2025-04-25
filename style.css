@@ -77,7 +77,6 @@ header {
 }
 
 .search-wrapper {
-  position: sticky;
   top: 0;
   background: var(--bg);
   display: flex;
@@ -89,11 +88,11 @@ header {
 }
 
 .search-wrapper input {
+  position: sticky;
   flex: 1;
   max-width: 400px;
   padding: 10px 15px;
   font-size: 22px;
-  position: relative;
   right: 10px;
   border: 2px solid var(--banner-bg);
   border-radius: 8px;
@@ -346,41 +345,90 @@ header {
   }
 
   .search-wrapper {
+    display: flex;
     flex-direction: column;
-    align-items: stretch;
+    gap: 10px;
+    padding: 10px 12px;
+  }
+
+  .search-wrapper input {
+    font-size: 16px;
+    padding: 8px 12px;
+    width: 100%;
+  }
+
+  .filters-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
 
   .filter-label {
+    display: block;
+  }
+
+  .filter-text {
     display: inline-block;
-    margin: 6px 0;
+    padding: 4px 8px;
+    margin-right: 8px;
+    border: 2px solid var(--banner-bg);
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    color: var(--text);
+  }
+  
+
+  .filter-label input:checked + .filter-text {
+    background: var(--banner-bg);
+    color: white;
   }
 
   #theme-select {
-    margin-top: 12px;
-    margin-left: 0;
+    font-size: 14px;
+    padding: 6px;
+    width: 100%;
   }
 
   .herb-card img {
     height: 160px;
   }
 
-  body {
-    font-size: 18px;
-  }
-
   .herb-card h2 {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .herb-card p {
-    font-size: 18px;
+    font-size: 15px;
   }
+
+  .herb-card .banner {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  body {
+    font-size: 15px;
+  }
+
+  .search-bar-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: var(--bg);
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .search-bar-wrapper input {
+    width: 90%;
+    padding: 10px 15px;
+    font-size: 22px;
+    border: 2px solid var(--banner-bg);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  
 }
-
-
-.herb-card .banner {
-  padding: 14px;
-  font-size: 18px;
-}
-
 

@@ -13,24 +13,31 @@
     </header>
 
     <main>
-        <div class="search-wrapper">     
+
+        <div class="search-bar-wrapper">     
             <input type="text" id="search-input" placeholder="Rechercher une herbe..."/>
-            <label class="filter-label">
-                <input type="checkbox" id="filter-italian"/>
-                <span class="filter-text">Cuisine italienne</span>
-            </label>
-            <label class="filter-label">
-                <input type="checkbox" id="filter-indian"/>
-                <span class="filter-text">Cuisine indienne</span>
-            </label>
-            <label class="filter-label">
-                <input type="checkbox" id="filter-asian"/>
-                <span class="filter-text">Cuisine asiatique</span>
-            </label>
-            <label class="filter-label">
-                <input type="checkbox" id="filter-french"/>
-                <span class="filter-text">Cuisine française</span>
-            </label>
+          </div>
+
+        <div class="search-wrapper">     
+            <div class="filters-grid">
+                <label class="filter-label">
+                  <input type="checkbox" id="filter-italian" />
+                  <span class="filter-text">Cuisine italienne</span>
+                </label>
+                <label class="filter-label">
+                  <input type="checkbox" id="filter-indian" />
+                  <span class="filter-text">Cuisine indienne</span>
+                </label>
+                <label class="filter-label">
+                  <input type="checkbox" id="filter-asian" />
+                  <span class="filter-text">Cuisine asiatique</span>
+                </label>
+                <label class="filter-label">
+                  <input type="checkbox" id="filter-french" />
+                  <span class="filter-text">Cuisine française</span>
+                </label>
+              </div>
+              
         <select id="theme-select">
             <option value="light">Clair</option>
             <option value="dark">Sombre</option>

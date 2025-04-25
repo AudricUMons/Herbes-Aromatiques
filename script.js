@@ -11,8 +11,11 @@ let herbDataList = [];
 let searchTimeout;
 let container, searchInput, loader;
 
+
 let isEmptyState = false;
 let flyAnimationTimeout, iconSpawnInterval;
+let soundPlayTimeout = null;
+let headSpawnTimeout = null;
 
 // Affichage du loader
 function showLoader() { loader?.classList.remove('hidden'); }
@@ -277,6 +280,8 @@ function moveAndShakeIcon(icon) {
 
 function spawnGadgetHead() {
   const head = document.getElementById('gadget-head');
+  if (!container || !container.classList.contains('empty')) return;
+
   head.style.display = 'block';
   const W = window.outerWidth;
   const H = window.outerHeight;
@@ -305,7 +310,7 @@ function spawnGadgetHead() {
       if (head.classList.contains('fly')) return;
       head.classList.remove('peek');
       head.classList.add('hide');
-    }, 2000);
+    }, 3000);
   });
 }
 
@@ -378,8 +383,25 @@ function initDisplayEmpty() {
   hideLoader();
   startIconSearchAnim();
 
-  spawnGadgetHead();
+  clearTimeout(headSpawnTimeout);
+
+  headSpawnTimeout = setTimeout(() => {
+    if (container.classList.contains('empty')) {
+      spawnGadgetHead();
+    }
+  }, 10000);
+
+  // 💡 Programmation du son avec délai
+  clearTimeout(soundPlayTimeout);
+  soundPlayTimeout = setTimeout(() => {
+    if (container.classList.contains('empty')) {
+      theme.play().catch(() => {
+        console.warn('Impossible de jouer le son (autoplay bloqué ?)');
+      });
+    }
+  }, 5000);
 }
+
 
 document.addEventListener('DOMContentLoaded', async ()=>{
 
@@ -391,6 +413,8 @@ document.addEventListener('DOMContentLoaded', async ()=>{
     } else if (!isNowEmpty && isEmptyState) {
       isEmptyState = false;
       clearEmptyStateAnimations();
+      clearTimeout(soundPlayTimeout);
+      clearTimeout(headSpawnTimeout);
     }
   });
   observer.observe(container, { attributes: true, attributeFilter: ['class'] });

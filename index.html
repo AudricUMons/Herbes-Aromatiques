@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    <title>Herbes Aromatiques</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <header>
+        <h1>🌿 Herbes Aromatiques</h1>
+    </header>
+
+    <main>
+        <div class="search-wrapper">     
+            <input type="text" id="search-input" placeholder="Rechercher une herbe..."/>
+            <label class="filter-label">
+                <input type="checkbox" id="filter-italian"/>
+                <span class="filter-text">Cuisine italienne</span>
+            </label>
+            <label class="filter-label">
+                <input type="checkbox" id="filter-indian"/>
+                <span class="filter-text">Cuisine indienne</span>
+            </label>
+            <label class="filter-label">
+                <input type="checkbox" id="filter-asian"/>
+                <span class="filter-text">Cuisine asiatique</span>
+            </label>
+            <label class="filter-label">
+                <input type="checkbox" id="filter-french"/>
+                <span class="filter-text">Cuisine française</span>
+            </label>
+        <select id="theme-select">
+            <option value="light">Clair</option>
+            <option value="dark">Sombre</option>
+            <option value="garden">Garden</option>
+            <option value="oceanic">Océan</option>
+            <option value="sunset">Crépuscule</option>
+        </select>
+        </div>
+
+        <div id="herb-container"></div>
+        <div id="loader" class="spinner hidden"></div>
+    </main>
+
+    <script src="script_fusionne.js"></script>
+    <audio id="gadget-theme" src="inspecteurgadget.mp3" preload="auto"></audio>
+    <img id="gadget-head" src="inspecteur_gadget.png" alt="Inspecteur Gadget" style="display: none;"/>
+
+
+</body>
+</html>
